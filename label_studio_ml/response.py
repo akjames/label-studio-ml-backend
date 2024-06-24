@@ -10,8 +10,11 @@ SingleTaskPredictions = Union[List[PredictionValue], PredictionValue]
 
 
 class ModelResponse(BaseModel):
-    """
-    """
+    
+    class Config:
+        populate_by_name = True
+        protected_namespaces = ()
+
     model_version: Optional[str] = None
     predictions: List[SingleTaskPredictions]
 
